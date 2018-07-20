@@ -11,6 +11,12 @@ export default Controller.extend({
       id: 'AIS profile',
       label: 'AIS profile',
       value: 'A aardvark',
+      description: 'L2 tabs',
+      isClosable: true,
+      icon: {
+        name: 'email',
+        pack: 'frost'
+      },
       actions: [
         {
           action: {
@@ -38,15 +44,68 @@ export default Controller.extend({
           isVisible: true,
           disabled: false
         }
+      ],
+      subtabs: [
+        {
+          id: 'doc',
+          template: 'frost-object-browser-wrapper-with-list-table',
+          label: 'Domain optical controller'
+        },
+        {
+          id: 'splis',
+          template: 'frost-object-browser-wrapper-with-table',
+          label: 'SPLI'
+        },
+        {
+          id: 'ots',
+          template: 'frost-object-browser-wrapper-with-table',
+          label: 'OTS'
+        },
+        {
+          id: 'tidseq',
+          template: 'frost-object-browser-wrapper-with-table',
+          label: 'TID sequence'
+        }
       ]
     },
-    {id: 'BFD profile', label: 'BFD profile', value: 'B bear'},
-    {id: 'Channels', label: 'Channels', value: 'C chipmunk'},
-    {id: 'Differential provisioning', label: 'Differential provisioning', value: 'D draft'},
-    {id: 'External alarms', label: 'External alarms provisioning', value: 'E ears'},
-    {id: 'External controls', label: 'External controls', value: 'F funky'},
-    {id: 'GMPLS TP tunnel', label: 'GMPLS TP tunnel', value: 'F funky'},
-    {id: 'Media channels', label: 'Media channels', value: 'F funky'}
+    {
+      id: 'BFD profile',
+      label: 'BFD profile',
+      value: 'B bear',
+      isClosable: true,
+      icon: {
+        name: 'email',
+        pack: 'frost'
+      },
+      subtabs: [
+        {
+          id: 'nodesettings',
+          template: 'frost-object-browser-wrapper-with-list-table',
+          label: 'Node settings'
+        },
+        {
+          id: 'tod',
+          template: 'frost-object-browser-wrapper-with-list-table',
+          label: 'Time of day'
+        }
+      ]
+    },
+    {id: 'Channels', label: 'Channels', value: 'C chipmunk', icon: {name: 'email', pack: 'frost'}},
+    {
+      id: 'Differential provisioning',
+      label: 'Differential provisioning',
+      value: 'D draft',
+      icon: {name: 'email', pack: 'frost'}
+    },
+    {
+      id: 'External alarms',
+      label: 'External alarms provisioning',
+      value: 'E ears',
+      icon: {name: 'email', pack: 'frost'}
+    },
+    {id: 'External controls', label: 'External controls', value: 'F funky', icon: {name: 'email', pack: 'frost'}},
+    {id: 'GMPLS TP tunnel', label: 'GMPLS TP tunnel', value: 'F funky', icon: {name: 'email', pack: 'frost'}},
+    {id: 'Media channels', label: 'Media channels', value: 'F funky', icon: {name: 'email', pack: 'frost'}}
   ],
 
   @readOnly
@@ -73,6 +132,7 @@ export default Controller.extend({
     'Biztab'
   ]),
   selectedTab: null,
+  previousSelectedTab: null,
   selectedSubTab: null,
   subtabs: [
     {
@@ -96,7 +156,19 @@ export default Controller.extend({
 
   _selectTab (tab) {
     this.get('tabs').addObject(tab)
-    this.set('selectedTab', tab)
+    if (this.get('selectedTab') !== tab) {
+      this.set('previousSelectedTab', this.get('selectedTab'))
+      this.set('selectedTab', tab)
+    } else if (tab !== 'more') {
+      this.set('selectedTab', tab)
+    } else {
+      if (isEmpty(this.get('previousSelectedTab'))) {
+        this.set('selectedTab', 'View')
+      } else {
+        this.set('selectedTab', this.get('previousSelectedTab'))
+      }
+      this.set('previousSelectedTab', null)
+    }
   },
   _selectSubtab (tab) {
     this.set('selectedSubtab', tab)

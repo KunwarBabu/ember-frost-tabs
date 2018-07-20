@@ -1,0 +1,43 @@
+{{! Template for the frost-accordion-item component }}
+<!-- template-lint invalid-interactive=false -->
+<div class='{{classNames}}-menu-header {{active}}' {{action headerClicked item.id}}>
+  <div class='{{classNames}}-header'>
+    {{frost-icon
+      class=(concat css '-expanded-icon')
+      hook=(concat hookPrefix '-tabIcon')
+      icon=item.icon.name
+      pack=item.icon.pack
+    }}
+    {{item.id}}
+  </div>
+  <div class='{{classNames}}-header-icon'>
+    {{#if isExpanded}}
+      {{frost-icon
+        class=(concat css '-expanded-icon')
+        hook=(concat hookPrefix '-tabIcon')
+        icon='expand-collapse'
+        pack='frost'
+      }}
+    {{else}}
+      {{frost-icon
+        class=(concat css '-collpase-icon')
+        hook=(concat hookPrefix '-tabIcon')
+        icon='expand-collapse'
+        pack='frost'
+      }}
+    {{/if}}
+  </div>
+</div>
+{{#if isExpanded}}
+  <div class='{{classNames}}-details'>
+    {{#each item.subtabs as |tab|}}
+      <button
+        class='{{classNames}}-element'
+        {{action onSelect item.id tab.id}}
+      >
+        <div class='{{css}}-elementLabel'>{{tab.label}}</div>
+        <div class='{{css}}-elementDescription'>{{tab.description}}</div>
+      </button>
+    {{/each}}
+  </div>
+{{/if}}

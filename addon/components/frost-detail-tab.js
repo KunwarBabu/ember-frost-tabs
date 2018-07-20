@@ -24,6 +24,7 @@ export default Component.extend({
   propTypes: {
     // Required
     register: PropTypes.func.isRequired,
+    closeClickedTab: PropTypes.func.isRequired,
     selectedTab: PropTypes.shape({
       id: PropTypes.any.isRequired,
       label: PropTypes.string.isRequired
@@ -31,7 +32,8 @@ export default Component.extend({
     tab: PropTypes.shape({
       description: PropTypes.string,
       id: PropTypes.any.isRequired,
-      label: PropTypes.string.isRequired
+      label: PropTypes.string.isRequired,
+      isClosable: PropTypes.bool
     }),
     viewport: PropTypes.EmberObject.isRequired,
     onSelect: PropTypes.func.isRequired,
@@ -99,5 +101,4 @@ export default Component.extend({
   // == Lifecycle Hooks =======================================================
 
   // == Actions ===============================================================
-
 })

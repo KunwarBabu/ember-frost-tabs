@@ -1,20 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="36px" height="27px" viewBox="0 0 36 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <rect id="path-1" x="0" y="12" width="24" height="14" rx="1"></rect>
-    </defs>
-    <g id="Extra-Tab+-actions" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="extra_tabs-copy-4" transform="translate(-1279.000000, -137.000000)">
-            <g id="Add_tab" transform="translate(1279.000000, 138.000000)">
-                <g id="Group-7" transform="translate(22.000000, 0.000000)" stroke="#979797" stroke-width="3" stroke-linecap="square">
-                    <path d="M0.224,7 L12.2199707,7" id="Line"></path>
-                    <path d="M0.224,7 L12.992,7" id="Line" transform="translate(6.720000, 7.000000) rotate(-270.000000) translate(-6.720000, -7.000000) "></path>
-                </g>
-                <g id="Rectangle-6">
-                    <use fill="#F5F6F7" fill-rule="evenodd" xlink:href="#path-1"></use>
-                    <rect stroke="#BABCBE" stroke-width="1" x="0.5" y="12.5" width="23" height="13" rx="1"></rect>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" ?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg height="32px" id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
 </svg>

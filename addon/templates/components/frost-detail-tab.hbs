@@ -5,5 +5,15 @@
     {{yield}}
   {{else}}
     {{tab.label}}
+    {{#if tab.isClosable}}
+      <div class='frost-detail-tab-close'>
+        {{frost-button
+          size='small'
+          icon='round-close'
+          hook='frost'
+          onClick=(action closeClickedTab tab.id)
+        }}
+      </div>
+    {{/if}}
   {{/if}}
 </span>

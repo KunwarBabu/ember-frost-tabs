@@ -1,6 +1,9 @@
 $frost-detail-tab-active-border: $frost-color-grey-1;
 $frost-detail-tab-active-text: $frost-color-grey-1;
 $hover-bg-color: rgba($frost-color-blue-1, .07);
+$hover-icon-color: #c10;
+$frost-icon-color: #000;
+$accordion-background-color: #d9d9d9;
 
 .frost-detail-tabs {
   display: flex;
@@ -84,18 +87,57 @@ $hover-bg-color: rgba($frost-color-blue-1, .07);
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 15px;
+  padding-right: 15px;
+  padding-left: 15px;
   color: $frost-color-grey-5;
   font-size: $frost-font-s;
 
   .frost-icon {
     margin-right: 5px;
-    color: $frost-color-grey-5;
+    color: $frost-icon-color;
 
     &.frost-detail-tabs-more-tab-icon {
-      width: 36px;
-      height: 27px;
+      width: 30px;
+      height: 30px;
       margin: 0 10px 5px 0;
+    }
+  }
+
+  .frost-detail-tab-close {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    justify-content: flex-start;
+    width: 10px;
+    height: 10px;
+
+    .small {
+      display: none;
+      position: absolute;
+      justify-content: center;
+      width: 10px;
+      height: 10px;
+    }
+
+    .icon {
+      display: flex;
+      position: absolute;
+      top: -2px;
+      right: 7px;
+      align-self: center;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  :hover {
+    .small {
+      display: flex;
+    }
+
+    .frost-icon {
+      color: $hover-icon-color;
     }
   }
 }
@@ -116,8 +158,22 @@ $hover-bg-color: rgba($frost-color-blue-1, .07);
   background-color: $frost-color-lgrey-3;
 }
 
+.is-accordian-menu {
+  display: flex;
+  position: absolute;
+  left: 60%;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 40%;
+  height: 100%;
+  margin-top: 10px;
+  padding: 10px 5px;
+  background-color: $accordion-background-color;
+}
+
+
 .frost-detail-tabs-more-tabs-filter {
-  width: 300px;
+  width: 90%;
   margin-bottom: 30px;
 }
 

@@ -1,0 +1,98 @@
+$accordion-border-color: #ddd;
+$accordion-item-menu-background-color: #e5e5e5;
+$accordion-text-color: #929497;
+$accordion-shawdow-color: rgba(0, 0, 0, .05);
+$accordion-item-header-color: #404041;
+$accordion-background-color-hover: rgba($frost-color-blue-1, .05);
+$accordion-hover-color: #e2e2e2;
+$accordion-details-bg-color: #f2f2f2;
+
+.frost-accordion-item {
+  & .frost-accordion-item-menu-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: $accordion-border-color;
+    background-color: $accordion-item-menu-background-color;
+    color: $accordion-text-color;
+    font-size: 12px;
+    box-shadow: 0 1px 1px $accordion-shawdow-color;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+
+    & .frost-accordion-item-header {
+      display: flex;
+      width: 85%;
+      margin-left: 10px;
+
+      & .frost-icon {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+      }
+    }
+
+    & .frost-accordion-item-header-icon {
+      color: $accordion-item-header-color;
+
+      & .frost-icon {
+        width: 10px;
+        height: 10px;
+      }
+
+      .frost-accordion-item-collpase-icon {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  :hover {
+    background-color: $accordion-background-color-hover;
+  }
+
+  .active-item {
+    border-bottom: 2px solid $accordion-item-header-color;
+  }
+
+  & .frost-accordion-item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+    height: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: $accordion-border-color;
+    background-color: $accordion-details-bg-color;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+
+    & .frost-accordion-item-element {
+      display: flex;
+      justify-content: flex-start;
+      width: 98%;
+      margin-bottom: 5px;
+      margin-left: 5px;
+      padding: 5px;
+      color: $accordion-text-color;
+      font-size: 12px;
+    }
+
+    :hover {
+      background-color: $accordion-background-color-hover;
+      color: $frost-color-blue-1;
+    }
+  }
+}

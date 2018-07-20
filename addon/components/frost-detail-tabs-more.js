@@ -47,7 +47,7 @@ export default Component.extend({
   getDefaultProps () {
     return {
       // Option defaults
-      label: 'More details',
+      label: '',
       targetOutlet: 'frost-detail-tabs-more',
 
       // State defaults
@@ -105,6 +105,9 @@ export default Component.extend({
 
   actions: {
     _register () {
+      // No-op (special case - the More tab isn't part of the overflow)
+    },
+    closeClickedTab (closedTabId) {
       // No-op (special case - the More tab isn't part of the overflow)
     }
   }

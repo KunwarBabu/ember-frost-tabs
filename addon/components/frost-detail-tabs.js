@@ -3,7 +3,7 @@
  */
 
 import Ember from 'ember'
-const {Logger, Object: EmberObject, isEmpty, run, typeOf} = Ember
+const {A, Logger, Object: EmberObject, isEmpty, run, typeOf} = Ember
 import computed, {readOnly} from 'ember-computed-decorators'
 import {task, timeout} from 'ember-concurrency'
 import {Component} from 'ember-frost-core'
@@ -36,6 +36,7 @@ export default Component.extend({
       PropTypes.EmberObject
     ]),
     onSelect: PropTypes.func.isRequired,
+    isAccordianMenu: PropTypes.bool.isRequired,
 
     // State
     _isInserted: PropTypes.bool,
@@ -115,9 +116,19 @@ export default Component.extend({
 
     // Map tab strings to an {id, label} hash
     return tabs.map(label => {
-      return {
-        id: label,
-        label
+      const tab = A(this.get('apiTabs')).findBy('label', label)
+      if (!isEmpty(tab)) {
+        const isClosable = tab.isClosable
+        return {
+          id: label,
+          label,
+          isClosable
+        }
+      } else {
+        return {
+          id: label,
+          label
+        }
       }
     }).filter(({id}) => {
       // Strip the 'More' tab out of the set of scrollable tabs
@@ -266,6 +277,18 @@ export default Component.extend({
       const scrollLeft = scrollLeftTarget < maximumScrollLeft ? scrollLeftTarget : maximumScrollLeft
 
       this._scrollViewport(scrollLeft)
+    },
+    closeClickedTab (closedTabId) {
+      const openTabArray = this.get('tabs')
+      const indexOfMoreTab = openTabArray.indexOf('more')
+      const index = openTabArray.indexOf(closedTabId)
+      openTabArray.splice(index, 1)
+      this.set('tabs.[]', openTabArray)
+      if (openTabArray.length - 1 !== indexOfMoreTab) {
+        this.set('selectedTab', openTabArray[openTabArray.length - 1])
+      } else {
+        this.set('selectedTab', openTabArray[openTabArray.length - 2])
+      }
     }
   }
 

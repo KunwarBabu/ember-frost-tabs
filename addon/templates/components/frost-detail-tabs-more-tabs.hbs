@@ -1,5 +1,4 @@
 {{! Template for the frost-detail-tabs-more-tabs component }}
-
 {{frost-text
   class=(concat css '-filter')
   hook=(concat hookPrefix '-filter')
@@ -8,22 +7,32 @@
 }}
 
 {{resize-detector (concat '.' css '-container') on-resize=(action '_resize')}}
-
-{{#frost-scroll
-  class=(concat css '-container')
-  hook=(concat hookPrefix '-container')
-}}
-  {{#each _columns key='@index' as |column|}}
-    <div class='{{css}}-column'>
-      {{#each column key='id' as |tab|}}
-        <button
-          class='{{css}}-element'
-          {{action onSelect tab.id}}
-        >
-          <div class='{{css}}-elementLabel'>{{tab.label}}</div>
-          <div class='{{css}}-elementDescription'>{{tab.description}}</div>
-        </button>
-      {{/each}}
-    </div>
-  {{/each}}
-{{/frost-scroll}}
+{{#if isAccordianMenu}}
+  {{#frost-scroll
+    class=(concat css '-container')
+    hook=(concat hookPrefix '-container')
+  }}
+    {{#each _columns key='@index' as |column|}}
+      {{frost-accordion-list items=column onSelect=onSelect}}
+    {{/each}}
+  {{/frost-scroll}}
+{{else}}
+  {{#frost-scroll
+    class=(concat css '-container')
+    hook=(concat hookPrefix '-container')
+  }}
+    {{#each _columns key='@index' as |column|}}
+      <div class='{{css}}-column'>
+        {{#each column key='id' as |tab|}}
+          <button
+            class='{{css}}-element'
+            {{action onSelect tab.id}}
+          >
+            <div class='{{css}}-elementLabel'>{{tab.label}}</div>
+            <div class='{{css}}-elementDescription'>{{tab.description}}</div>
+          </button>
+        {{/each}}
+      </div>
+    {{/each}}
+  {{/frost-scroll}}
+{{/if}}

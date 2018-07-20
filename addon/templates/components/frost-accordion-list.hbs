@@ -1,0 +1,10 @@
+{{#each items as |item|}}
+  {{frost-accordion-item
+    item=item
+    activeItem=activeItem
+    headerClicked=(action 'toggleActiveItem' item)
+    hook=hook
+    onSelect=onSelect
+    closeClickedTab=closeClickedTab
+  }}
+{{/each}}

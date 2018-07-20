@@ -8,6 +8,7 @@
   tab=_tab
   viewport=_viewport
   onSelect=onSelect
+  closeClickedTab=(action 'closeClickedTab')
 }}
   {{frost-icon
     class=(concat css '-tab-icon')
@@ -17,7 +18,6 @@
   }}
   {{_tab.label}}
 {{/frost-detail-tab}}
-
 {{#if (eq selectedTab.id _tab.id)}}
   {{to-elsewhere
     named=targetOutlet
@@ -25,6 +25,7 @@
       hook=(concat hookPrefix '-tabs')
       tabs=_tabs
       onSelect=onSelect
+      isAccordianMenu=isAccordianMenu
     )
   }}
 {{/if}}

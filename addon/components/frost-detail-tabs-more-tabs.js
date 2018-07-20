@@ -14,6 +14,7 @@ import layout from '../templates/components/frost-detail-tabs-more-tabs'
 const COLUMN_WIDTH = 350
 
 export default Component.extend({
+  classNameBindings: ['isAccordianMenu'],
 
   // == Dependencies ==========================================================
 
@@ -31,6 +32,7 @@ export default Component.extend({
       PropTypes.EmberObject
     ])).isRequired,
     onSelect: PropTypes.func.isRequired,
+    isAccordianMenu: PropTypes.bool.isRequired,
 
     // State
     _filter: PropTypes.string
@@ -73,9 +75,16 @@ export default Component.extend({
     if (isEmpty(filter)) {
       return tabs
     }
-
-    return tabs.filter(({description, label}) => {
-      const isLabelMatch = label.toLowerCase().includes(filter.toLowerCase())
+    return tabs.filter(({description, label, subtabs}) => {
+      let isSubTabLabelMatch = false
+      if (subtabs) {
+        subtabs.forEach(subTab => {
+          if (subTab.label.toLowerCase().includes(filter.toLowerCase())) {
+            isSubTabLabelMatch = true
+          }
+        })
+      }
+      const isLabelMatch = label.toLowerCase().includes(filter.toLowerCase()) || isSubTabLabelMatch
       const isDescriptionMatch = description ? description.toLowerCase().includes(filter.toLowerCase()) : false
       return isLabelMatch || isDescriptionMatch
     })

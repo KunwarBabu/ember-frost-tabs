@@ -36,9 +36,11 @@
         hook=(concat hookPrefix '-' tab.id)
         register=(action '_register')
         selectedTab=_selectedTab
+        apiTabs=apiTabs
         tab=tab
         viewport=_viewport
         onSelect=onSelect
+        closeClickedTab=(action 'closeClickedTab')
       ~}}
     {{/each}}
   </div>
@@ -65,6 +67,7 @@
       hook=(concat hookPrefix '-more')
       selectedTab=_selectedTab
       onSelect=onSelect
+      isAccordianMenu=isAccordianMenu
     )
   )
 }}
