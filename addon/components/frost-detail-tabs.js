@@ -37,6 +37,7 @@ export default Component.extend({
     ]),
     onSelect: PropTypes.func.isRequired,
     isAccordianMenu: PropTypes.bool.isRequired,
+    closeClickedTab: PropTypes.func.isRequired,
 
     // State
     _isInserted: PropTypes.bool,
@@ -277,18 +278,6 @@ export default Component.extend({
       const scrollLeft = scrollLeftTarget < maximumScrollLeft ? scrollLeftTarget : maximumScrollLeft
 
       this._scrollViewport(scrollLeft)
-    },
-    closeClickedTab (closedTabId) {
-      const openTabArray = this.get('tabs')
-      const indexOfMoreTab = openTabArray.indexOf('more')
-      const index = openTabArray.indexOf(closedTabId)
-      openTabArray.splice(index, 1)
-      this.set('tabs.[]', openTabArray)
-      if (openTabArray.length - 1 !== indexOfMoreTab) {
-        this.set('selectedTab', openTabArray[openTabArray.length - 1])
-      } else {
-        this.set('selectedTab', openTabArray[openTabArray.length - 2])
-      }
     }
   }
 

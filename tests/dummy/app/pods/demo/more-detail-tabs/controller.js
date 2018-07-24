@@ -187,6 +187,18 @@ export default Controller.extend({
     },
     onSubtabSelect (subtab) {
       run.schedule('sync', this, this._selectSubtab.bind(this, subtab))
+    },
+    onTabClose (closedTabId) {
+      const openTabArray = this.get('tabs')
+      const indexOfMoreTab = openTabArray.indexOf('more')
+      const index = openTabArray.indexOf(closedTabId)
+      openTabArray.splice(index, 1)
+      this.set('tabs.[]', openTabArray)
+      if (openTabArray.length - 1 !== indexOfMoreTab) {
+        this.set('selectedTab', openTabArray[openTabArray.length - 1])
+      } else {
+        this.set('selectedTab', openTabArray[openTabArray.length - 2])
+      }
     }
   }
 })

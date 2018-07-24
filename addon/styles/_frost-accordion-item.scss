@@ -14,7 +14,7 @@ $accordion-details-bg-color: #f2f2f2;
     align-items: center;
     width: 90%;
     padding: 5px;
-    border-width: 1px;
+    border-width: 2px;
     border-style: solid;
     border-radius: 4px;
     border-color: $accordion-border-color;
@@ -89,6 +89,11 @@ $accordion-details-bg-color: #f2f2f2;
       padding: 5px;
       color: $accordion-text-color;
       font-size: 12px;
+
+      .frost-accordion-item-elementlabel {
+        display: flex;
+        margin-right: 30px;
+      }
     }
 
     :hover {

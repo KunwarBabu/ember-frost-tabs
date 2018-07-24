@@ -8,7 +8,7 @@
       icon=item.icon.name
       pack=item.icon.pack
     }}
-    {{item.id}}
+    {{item.label}}
   </div>
   <div class='{{classNames}}-header-icon'>
     {{#if isExpanded}}
@@ -35,7 +35,7 @@
         class='{{classNames}}-element'
         {{action onSelect item.id tab.id}}
       >
-        <div class='{{css}}-elementLabel'>{{tab.label}}</div>
+        <div class='{{css}}-elementlabel'>{{tab.label}}</div>
         <div class='{{css}}-elementDescription'>{{tab.description}}</div>
       </button>
     {{/each}}
