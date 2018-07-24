@@ -162,10 +162,10 @@ $accordion-background-color: #d9d9d9;
 .is-accordian-menu {
   display: flex;
   position: absolute;
-  left: 65%;
+  left: 75%;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100%;
+  width: 25%;
   margin-top: 10px;
   padding: 10px 5px;
   background-color: $accordion-background-color;
