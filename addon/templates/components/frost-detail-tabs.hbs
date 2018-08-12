@@ -1,5 +1,4 @@
 {{! Template for the frost-detail-tabs component }}
-
 {{resize-detector (concat '.' css '-scroll') on-resize=(action '_resize')}}
 
 {{#if _isInOverflow}}
@@ -68,6 +67,8 @@
       selectedTab=_selectedTab
       onSelect=onSelect
       isAccordianMenu=isAccordianMenu
+      onClick=onClick
+      isMoreTabVisible=isMoreTabVisible
     )
   )
 }}

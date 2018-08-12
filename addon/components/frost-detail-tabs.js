@@ -38,6 +38,7 @@ export default Component.extend({
     onSelect: PropTypes.func.isRequired,
     isAccordianMenu: PropTypes.bool.isRequired,
     closeClickedTab: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
 
     // State
     _isInserted: PropTypes.bool,

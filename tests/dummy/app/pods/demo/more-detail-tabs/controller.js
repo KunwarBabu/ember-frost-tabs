@@ -5,7 +5,6 @@ import computed, {readOnly} from 'ember-computed-decorators'
 export default Controller.extend({
 
   // API driven
-
   apiTabs: [
     {
       id: 'AIS profile',
@@ -134,6 +133,7 @@ export default Controller.extend({
   selectedTab: null,
   previousSelectedTab: null,
   selectedSubTab: null,
+  isMoreTabVisible: false,
   subtabs: [
     {
       'tab': 'View',
@@ -156,19 +156,7 @@ export default Controller.extend({
 
   _selectTab (tab) {
     this.get('tabs').addObject(tab)
-    if (this.get('selectedTab') !== tab) {
-      this.set('previousSelectedTab', this.get('selectedTab'))
-      this.set('selectedTab', tab)
-    } else if (tab !== 'more') {
-      this.set('selectedTab', tab)
-    } else {
-      if (isEmpty(this.get('previousSelectedTab'))) {
-        this.set('selectedTab', 'View')
-      } else {
-        this.set('selectedTab', this.get('previousSelectedTab'))
-      }
-      this.set('previousSelectedTab', null)
-    }
+    this.set('selectedTab', tab)
   },
   _selectSubtab (tab) {
     this.set('selectedSubtab', tab)
@@ -183,6 +171,7 @@ export default Controller.extend({
       }
     },
     onSelect (tab) {
+      this.set('isMoreTabVisible', false)
       run.schedule('sync', this, this._selectTab.bind(this, tab))
     },
     onSubtabSelect (subtab) {
@@ -198,6 +187,14 @@ export default Controller.extend({
         this.set('selectedTab', openTabArray[openTabArray.length - 1])
       } else {
         this.set('selectedTab', openTabArray[openTabArray.length - 2])
+      }
+    },
+    toggleMoreMenu () {
+      const isVisible = this.get('isMoreTabVisible')
+      if (isVisible) {
+        this.set('isMoreTabVisible', false)
+      } else {
+        this.set('isMoreTabVisible', true)
       }
     }
   }
