@@ -3,7 +3,7 @@ $accordion-item-menu-background-color: #e5e5e5;
 $accordion-text-color: #929497;
 $accordion-shawdow-color: rgba(0, 0, 0, .05);
 $accordion-item-header-color: #404041;
-$accordion-background-color-hover: rgba($frost-color-blue-1, .05);
+$accordion-background-color-hover: rgba(67,201,247, 0.3)!important;
 $accordion-hover-color: #e2e2e2;
 $accordion-details-bg-color: #f2f2f2;
 
@@ -19,7 +19,7 @@ $accordion-details-bg-color: #f2f2f2;
     border-color: $accordion-border-color;
     background-color: $accordion-item-menu-background-color;
     color: $accordion-text-color;
-    font-size: 12px;
+    font-size: 15px;
     box-shadow: 0 1px 1px $accordion-shawdow-color;
     border-image-source: initial;
     border-image-slice: initial;
@@ -53,11 +53,6 @@ $accordion-details-bg-color: #f2f2f2;
     }
   }
 
-  :hover {
-    background-color: $accordion-background-color-hover;
-    cursor: pointer;
-  }
-
   .active-item {
     border-bottom: 2px solid $accordion-item-header-color;
   }
@@ -85,7 +80,8 @@ $accordion-details-bg-color: #f2f2f2;
       margin-left: 5px;
       padding: 5px;
       color: $accordion-text-color;
-      font-size: 12px;
+      font-size: 15px;
+      width: 100%;
 
       .frost-accordion-item-elementlabel {
         display: flex;
@@ -95,7 +91,6 @@ $accordion-details-bg-color: #f2f2f2;
 
     :hover {
       background-color: $accordion-background-color-hover;
-      color: $frost-color-blue-1;
     }
   }
 }
