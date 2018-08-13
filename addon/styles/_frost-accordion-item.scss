@@ -26,18 +26,22 @@ $accordion-details-bg-color: #f2f2f2;
     border-image-width: initial;
     border-image-outset: initial;
     border-image-repeat: initial;
+    align-items: center;
 
     & .frost-accordion-item-header {
       display: flex;
       width: 85%;
-      margin-left: 10px;
       justify-content: flex-start;
       align-items: center;
 
-      & .frost-icon {
-        width: 22px;
-        height: 22px;
-        margin-right: 5px;
+      .frost-accordion-item-icon {
+        svg:hover .square { fill: darkslateblue; }
+        display: flex;
+        .frost-icon {
+          width: 30px;
+          height: 25px;
+          margin-right: 5px;
+        }
       }
     }
 
@@ -52,6 +56,9 @@ $accordion-details-bg-color: #f2f2f2;
       .frost-accordion-item-collpase-icon {
         transform: rotate(-90deg);
       }
+    }
+    :hover {
+      cursor: pointer;
     }
   }
 

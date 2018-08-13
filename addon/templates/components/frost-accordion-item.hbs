@@ -2,13 +2,17 @@
 <!-- template-lint invalid-interactive=false -->
 <div class='{{classNames}}-menu-header {{active}}' {{action headerClicked item.id}}>
   <div class='{{classNames}}-header'>
-    {{frost-icon
-      class=(concat css '-expanded-icon')
-      hook=(concat hookPrefix '-tabIcon')
-      icon=item.icon.name
-      pack=item.icon.pack
-    }}
-    {{item.label}}
+    <div class='{{classNames}}-icon'>
+      {{frost-icon
+        class=(concat css '-expanded-icon')
+        hook=(concat hookPrefix '-tabIcon')
+        icon=item.icon.name
+        pack=item.icon.pack
+      }}
+    </div>
+    <div class='{{classNames}}-heading'>
+      {{item.label}}
+    </div>
   </div>
   <div class='{{classNames}}-header-icon'>
     {{#if isExpanded}}
