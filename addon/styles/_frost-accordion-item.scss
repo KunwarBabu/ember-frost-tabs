@@ -27,6 +27,7 @@ $accordion-details-bg-color: #f5f6f7;
     border-image-outset: initial;
     border-image-repeat: initial;
     align-items: center;
+    margin-bottom: 5px;
 
     & .frost-accordion-item-header {
       display: flex;
@@ -81,6 +82,7 @@ $accordion-details-bg-color: #f5f6f7;
     border-image-width: initial;
     border-image-outset: initial;
     border-image-repeat: initial;
+    margin-bottom: 5px;
 
     & .frost-accordion-item-element {
       display: flex;
