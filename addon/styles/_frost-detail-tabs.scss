@@ -3,7 +3,7 @@ $frost-detail-tab-active-text: $frost-color-grey-1;
 $hover-bg-color: rgba($frost-color-blue-1, .07);
 $hover-icon-color: #c10;
 $frost-icon-color: #000;
-$accordion-background-color: #d9d9d9;
+$accordion-background-color: #f0f2f4;
 $addon-demos-component-bg-color: #f8f8f8;
 
 .frost-detail-tabs {
@@ -180,6 +180,10 @@ $addon-demos-component-bg-color: #f8f8f8;
   margin-top: 10px;
   padding: 10px 5px;
   background-color: $accordion-background-color;
+  border: 1px solid #929497;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 3px 10px 5px 10px #ccc;
 }
 
 

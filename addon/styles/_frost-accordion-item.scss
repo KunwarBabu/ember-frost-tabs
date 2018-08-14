@@ -5,7 +5,7 @@ $accordion-shawdow-color: rgba(0, 0, 0, .05);
 $accordion-item-header-color: #404041;
 $accordion-background-color-hover: rgba(67,201,247, 0.3)!important;
 $accordion-hover-color: #e2e2e2;
-$accordion-details-bg-color: #f2f2f2;
+$accordion-details-bg-color: #f5f6f7;
 
 .frost-accordion-item {
   & .frost-accordion-item-menu-header {
@@ -35,11 +35,10 @@ $accordion-details-bg-color: #f2f2f2;
       align-items: center;
 
       .frost-accordion-item-icon {
-        svg:hover .square { fill: darkslateblue; }
         display: flex;
         .frost-icon {
-          width: 30px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
           margin-right: 5px;
         }
       }
@@ -57,8 +56,9 @@ $accordion-details-bg-color: #f2f2f2;
         transform: rotate(-90deg);
       }
     }
-    :hover {
-      cursor: pointer;
+
+    :hover .frost-accordion-item-icon > .frost-icon{
+      transform: scale(1.11);
     }
   }
 
@@ -101,5 +101,8 @@ $accordion-details-bg-color: #f2f2f2;
     :hover {
       background-color: $accordion-background-color-hover;
     }
+  }
+  :hover {
+    cursor: pointer;
   }
 }
